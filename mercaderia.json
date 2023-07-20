@@ -3,112 +3,112 @@
         "name":"BUZO TJ CON CAPUCHA REGULAR FIT",
         "id":"001",
         "type":"Buzos",
-        "price":58.125,
+        "price":58125,
         "size":"L"
     },
     {
         "name":"BUZO PEACE LOVE AND SOUL OVERSIZE",
         "id":"002",
         "type":"Buzos",
-        "price":53.475,
+        "price":53475,
         "size":"L"
     },
     {
         "name":"BUZO CON CAPUCHA Y LOGO CON LA FIRMA",
         "id":"003",
         "type":"Buzos",
-        "price":62.775,
+        "price":62775,
         "size":"M"
     },
     {
         "name":"BUZO CON LOGO EN INTARSIA",
         "id":"004",
         "type":"Buzos",
-        "price":62.775,
+        "price":62775,
         "size":"M"
     },
     {
         "name":"REMERA CON INSCRIPCIÓN REGULAR FIT",
         "id":"005",
         "type":"Remera",
-        "price":18.600,
+        "price":18600,
         "size":"M"
     },
     {
         "name":"REMERA BÁSICA SLIM FIT",
         "id":"006",
         "type":"Remera",
-        "price":20.925,
+        "price":20925,
         "size":"M"
     },
     {
         "name":"REMERA CON INSCRIPCIÓN REGULAR FIT",
         "id":"007",
         "type":"Remera",
-        "price":25.575,
+        "price":25575,
         "size":"L"
     }, 
     {
         "name":"REMERA DE MANGA LARGA CON LOGO SUPERPUESTO",
         "id":"008",
         "type":"Remera",
-        "price":25.575,
+        "price":25575,
         "size":"S"
     }, 
     {
         "name":"JEANS DENTON RECTO",
         "id":"009",
         "type":"Jeans",
-        "price":83.700,
+        "price":83700,
         "size":"S"
     }, 
     {
         "name":"JEANS BLEECKER ELÁSTICOS Y AJUSTADOS",
         "id":"010",
         "type":"Jeans",
-        "price":69.750,
+        "price":69750,
         "size":"L"
     },
     {
         "name":"JEANS BLEECKER AJUSTADOS",
         "id":"011",
         "type":"Jeans",
-        "price":83.700,
+        "price":83700,
         "size":"M"
     },
     {
         "name":"CHALECO PLEGABLE TH WARM",
         "id":"012",
         "type":"Campera",
-        "price":116.250,
+        "price":116250,
         "size":"M"
     }, 
     {
         "name":"CAMPERA PLEGABLE TH WARM",
         "id":"013",
         "type":"Campera",
-        "price":130.200,
+        "price":130200,
         "size":"S"
     },
     {
         "name":"CHALECO PLEGABLE TH WARM",
         "id":"014",
         "type":"Campera",
-        "price":116.250,
+        "price":116250,
         "size":"L"
     }, 
     {
         "name":"CHALECO PLEGABLE TH WARM",
         "id":"015",
         "type":"Campera",
-        "price":116.250,
+        "price":116250,
         "size":"M"
     }, 
     {
         "name":"JOGGERS REGULAR FIT",
         "id":"016",
         "type":"Pantalon",
-        "price":44.175,
+        "price":44175,
         "size":"M"
     }
 ]

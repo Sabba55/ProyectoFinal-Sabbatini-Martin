@@ -10,6 +10,7 @@ class Producto{
 }
 
 
+
 // Cargamos en el Local Strorage!!
 const productos = JSON.parse(localStorage.getItem("productos")) || [] 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || []
@@ -58,6 +59,7 @@ const agregarProducto = ({name, id, type, price, size}) => {
 // ---------------------------------------------------------------------------- //
 // agregar productos al carrito
 
+// funciona
 const totalCarrito = () => {
     let total = carrito.reduce((acumulador, {price, quantity}) => {
         return acumulador + (price*quantity)
@@ -68,9 +70,10 @@ const totalCarrito = () => {
 // calcula el total del carrito
 const TotalCarritoRender = () => {
     const carritoTotal = document.getElementById("carritoTotal")
-    carritoTotal.innerHTML = `Precio Total: $ ${totalCarrito()}`
+    carritoTotal.innerHTML = `Total: $ ${totalCarrito()}`
 }
 
+// funciona
 const agregarCarrito = (objetoCarrito) => {
     carrito.push(objetoCarrito)
     TotalCarritoRender()
@@ -85,11 +88,11 @@ const renderizarCarrito = () => {
         let elementoTabla = document.createElement("tr")
         elementoTabla.innerHTML = `
                 <td>${name}</td>
-                <td>${price}</td>
-                <td>${quantity}</td>
+                <td class="toqueta">$ ${price}</td>
+                <td class="toqueta">${quantity}</td>
                 <td>
-                    <button id="eliminarCarrito${id}">X</button>
-                </td>`
+                    <button class="btn btn-primary boton-borrar" id="eliminarCarrito${id}"><i class="bi bi-x"></i></button>
+                </td> `
         
         listaCarrito.appendChild(elementoTabla)
 
@@ -104,7 +107,14 @@ const renderizarCarrito = () => {
             let carritoString = JSON.stringify(carrito)
             localStorage.setItem("carrito", carritoString)
             renderizarCarrito()
+            Swal.fire({
+                icon: 'warning',
+                title: `Elimino ${name} del carrito`,
+                showConfirmButton: true,
+                timer: 3500
+            })
         })
+        // guardamos en localstroge
         let carritoString = JSON.stringify(carrito)
         localStorage.setItem("carrito", carritoString)
     })
@@ -148,14 +158,14 @@ const renderizarProductos = (arrayProdUsado) => {
         // esto es para dar funcionalidad al boton agregar carrito
         // buscamos en el dom
         const btn = document.getElementById(`botonProd${id}`)
-        btn.addEventListener("click", (e) =>{
+        btn.addEventListener("click",(e)=>{
             e.preventDefault()
-            const contadorQuantity = Number(document.getElementById(`contador${id}`).value) // cantidad adquirida
-            if(contadorQuantity > 0){
-                if(carrito.some(producto => producto.id === id)){
-                    carrito = carrito.map(element => {
-                        if(element.id === id){
-                            element.quantity += contadorQuantity
+            const contadorQuantity = Number(document.getElementById(`contador${id}`).value)
+            if(contadorQuantity>0){
+                if(carrito.some(producto=>producto.id === id)){
+                    carrito = carrito.map(element=>{
+                        if(element.id===id){
+                            element.quantity+=contadorQuantity
                         }
                         return element
                     })
@@ -165,18 +175,60 @@ const renderizarProductos = (arrayProdUsado) => {
                 renderizarCarrito()
                 const form = document.getElementById(`form${id}`)
                 form.reset()
-                Swal.fire({
-                    icon: 'success',
-                    title: `Agrego ${contadorQuantity} ${name} al carrito`,
-                    showConfirmButton: true,
-                    timer: 2500
-                })
-                
             }
-        })
+        }) 
     })
 }
 
+// ---------------------------------------------------------------------------- //
+
+
+// Funcion para ejecutar la compra
+const compraFinal = document.getElementById("formCompraFinal")
+compraFinal.addEventListener("submit", (event) => {
+    event.preventDefault() // evitamos que se reinicie todo
+    if(carrito.length > 0){
+        compraFinalizada(event)  // ejecutamos la funcion por que hay algo en el carrito
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: `No existen productos seleccionados`,
+            showConfirmButton: true,
+            timer: 3500
+        })
+    }
+})
+
+
+const compraFinalizada = (event) => {
+    const data = new FormData(event.target)
+    const cliente = Object.fromEntries(data)
+
+    const idTicket = pedidos.length
+    const ticket = {cliente: cliente, total: totalCarrito(), id:idTicket, productos:carrito, fecha: new Date}
+    pedidos.push(ticket)  // lo guardamos en nuestro array
+
+    localStorage.setItem("pedidos", JSON.stringify(pedidos))
+    // borramos el array, para que no moleste
+    borrarCarrito()
+    Swal.fire({
+        icon: 'success',
+        title: `Su ticket de seguimiento es ${idTicket}!`,
+        Text: "Gracias por su compra!",
+        showConfirmButton: true,
+    })
+
+    let endbuy = document.getElementById("carritoTotal")
+    endbuy.innerHTML = ""
+}
+
+// borramos los productos
+const borrarCarrito = () => {
+    carrito.length = 0
+    let carritoString = JSON.stringify(carrito)
+    localStorage.setItem("carrito", carritoString) // guardamos en localstorage
+    renderizarCarrito()
+}
 
 
 // ---------------------------------------------------------------------------- //
@@ -210,6 +262,17 @@ selectorType.onchange = (evt) => {
 };
 
 
+// ---------------------------------------------------------------------------- //
+// un test que salio bien (desplazamiento automatico en la pagina)
+function irAMiSeccion() {
+    const miCarritoHTML = document.getElementById('miCarritoHTML');
+    miCarritoHTML.scrollIntoView({ behavior: 'smooth' });
+}
+
+
+// ---------------------------------------------------------------------------- //
+// Función de búsqueda
+// no pude hacerlo funcionar al search
 
 
 // Para ejecutar
