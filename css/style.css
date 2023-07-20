@@ -1,0 +1,63 @@
+/* AJUSTES GENERALES */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ------------------------------------------------------ */
+/* HEADER */
+.logo {
+    max-width: 280px;
+}
+
+.boton-agregar {
+    font-weight: bold;
+    font-family: "Futura-bold", Calibri, sans-serif;
+    background: transparent;
+    color: #14BE82;
+    border: 2px solid #14BE82;
+    border-radius: 0;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+}
+
+.boton-agregar:hover{
+    border: 2px solid #14BE82;
+    background: #14BE82;
+}
+
+
+/* carrito.html */
+.title_carrito {
+    font-family: "Futura-book", Calibri, sans-serif;
+    color: #00174f;
+}
+
+table{
+    width: 100%;
+}
+
+.table_carrito {
+    border-top: 4px solid #00174f;
+    border-bottom: 3px solid #00174f;
+}
+
+.table th {
+    font-weight: bold;
+}
+
+.table th, .table td {
+    padding: 8px;
+    line-height: 20px;
+    text-align: left;
+}
+
+tbody, td, tfoot, th, thead, tr {
+    border-style: none;
+}
