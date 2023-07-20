@@ -9,8 +9,6 @@ class Producto{
     }
 }
 
-
-
 // Cargamos en el Local Strorage!!
 const productos = JSON.parse(localStorage.getItem("productos")) || [] 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || []
