@@ -211,8 +211,7 @@ const compraFinalizada = (event) => {
     borrarCarrito()
     Swal.fire({
         icon: 'success',
-        title: `Su ticket de seguimiento es ${idTicket}!`,
-        Text: "Gracias por su compra!",
+        title: "Gracias por su compra!",
         showConfirmButton: true,
     })
 
