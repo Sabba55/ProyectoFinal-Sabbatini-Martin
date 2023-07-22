@@ -15,6 +15,7 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || []
 const pedidos = JSON.parse(localStorage.getItem("pedidos")) || []
 
 
+
 // ---------------------------------------------------------------------------- //
 // Buscamos nuestros productos cargados en el JSON (ya con esto, sabemos que productos tenemos disponibles)
 const productosPreExistentes = async () =>{
